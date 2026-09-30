@@ -15,6 +15,7 @@ Inti materi: Program/software = kumpulan instruksi yang memberitahu komputer apa
 Inti materi: Digital security berkaitan dengan perlindungan hardware, software, data, dan informasi. Cybercrime = tindakan ilegal yang dilakukan secara online/berbasis Internet. Membahas berbagai risiko seperti: hacker pencurian informasi pencurian software serangan Internet kerusakan sistem White hat hacker menguji keamanan sistem secara etis dan tidak bertujuan merugikan. Black hat hacker menerobos sistem untuk melakukan tindakan merugikan, seperti pencurian atau kerusakan. Membahas software piracy, etika penggunaan teknologi, dan privacy. Kunci ingat: Security → melindungi sistem Ethics → menggunakan teknologi secara bertanggung jawab Privacy → melindungi informasi pribadi
 
 MATERI 2
+
 6. Modul 6: Komponen Komputer
 Inti materi: Komponen utama komputer yang dibahas antara lain: Motherboard → papan sirkuit utama tempat berbagai komponen terhubung. Processor/CPU → menafsirkan dan menjalankan instruksi. Control Unit → mengatur dan mengoordinasikan operasi komputer. ALU → melakukan operasi aritmatika dan logika. Register → menyimpan data/instruksi sementara. System clock → mengatur waktu operasi processor. Memory → menyimpan instruksi, data yang sedang diproses, dan hasil pemrosesan. Membahas juga representasi data. Kunci ingat: CPU → memproses RAM/Memory → menyimpan sementara Motherboard → menghubungkan komponen
 
