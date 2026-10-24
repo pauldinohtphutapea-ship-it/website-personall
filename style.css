@@ -1,0 +1,444 @@
+/* ===== PENGATURAN DASAR ===== */
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #dbeafe;
+    --card: #ffffff;
+    --text: #192235;
+    --muted: #526b8a;
+    --blue: #145fe8;
+    --border: #a5dcff;
+}
+
+body {
+    margin: 0;
+    padding: 32px 16px;
+    background-color: #dbeafe;
+    background-image: linear-gradient(
+        135deg,
+        #dbeafe,
+        #93c5fd,
+        #c4e7ff
+    );
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.6;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* ===== EFEK BIRU KRISTAL DAN KILAUAN ===== */
+.profile-card,
+.about-card,
+.material-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        #168cff 0%,
+        #65caff 25%,
+        #d9f4ff 48%,
+        #83d8ff 70%,
+        #238fff 100%
+    );
+
+    background-size: 250% 250%;
+    border: 1px solid rgba(255, 255, 255, 0.95);
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.75),
+        0 0 24px rgba(56, 189, 248, 0.5),
+        0 0 40px rgba(37, 99, 235, 0.2),
+        inset 0 0 18px rgba(255, 255, 255, 0.25);
+
+    animation: blueGlow 6s ease-in-out infinite;
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease;
+}
+
+/* Kilauan putih bergerak */
+.profile-card::before,
+.about-card::before,
+.material-card::before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: -60%;
+    left: -100%;
+    width: 45%;
+    height: 220%;
+
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.85),
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+
+    transform: rotate(25deg);
+    animation: whiteShimmer 6s ease-in-out infinite;
+    pointer-events: none;
+}
+
+@keyframes whiteShimmer {
+    0%, 65% {
+        left: -100%;
+    }
+
+    100% {
+        left: 160%;
+    }
+}
+
+/* Cahaya biru berdenyut lembut */
+@keyframes blueGlow {
+    0%, 100% {
+        box-shadow:
+            0 0 10px rgba(255, 255, 255, 0.65),
+            0 0 22px rgba(56, 189, 248, 0.4),
+            inset 0 0 14px rgba(255, 255, 255, 0.15);
+    }
+
+    50% {
+        box-shadow:
+            0 0 16px rgba(255, 255, 255, 0.95),
+            0 0 32px rgba(56, 189, 248, 0.7),
+            0 0 45px rgba(37, 99, 235, 0.3),
+            inset 0 0 22px rgba(255, 255, 255, 0.3);
+    }
+}
+
+/* ===== KARTU PROFIL ===== */
+.profile-card {
+    border-radius: 30px;
+    padding: 0 28px 64px;
+    margin-bottom: 64px;
+    text-align: center;
+}
+
+.avatar-frame {
+    width: 260px;
+    height: 260px;
+    max-width: 100%;
+    margin: 0 auto 32px;
+    border-radius: 50%;
+    padding: 6px;
+    background: linear-gradient(
+        135deg,
+        #d94b88,
+        #7956d9,
+        #4779ed
+    );
+    overflow: hidden;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 50%;
+    border: 3px solid white;
+    object-fit: cover;
+    object-position: center;
+}
+
+.avatar-placeholder {
+    display: none;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: #e8edf5;
+    color: #64748b;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid white;
+}
+
+.profile-card h1 {
+    margin: 20px 0 8px;
+    font-size: clamp(27px, 5vw, 38px);
+    line-height: 1.25;
+    overflow-wrap: anywhere;
+    color: #102d55;
+}
+
+.identity {
+    color: #42678d;
+    font-size: 20px;
+    margin: 8px 0;
+}
+
+.university {
+    color: #064fce;
+    font-size: 23px;
+    margin: 8px 0;
+}
+
+/* ===== TENTANG SAYA ===== */
+.about-card {
+    border-radius: 20px;
+    margin-bottom: 42px;
+}
+
+.about-heading {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 25px 28px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    background: transparent;
+    border: none;
+    text-align: left;
+    color: #103968;
+    font-family: inherit;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+.section-icon {
+    font-size: 27px;
+}
+
+.arrow {
+    margin-left: auto;
+    color: #245b91;
+}
+
+.about-content {
+    position: relative;
+    z-index: 1;
+    padding: 0 28px 25px;
+    color: #153f68;
+    font-size: 16px;
+    line-height: 1.85;
+}
+
+.about-content p {
+    margin: 0 0 18px;
+}
+
+.about-content p:last-child {
+    margin-bottom: 0;
+}
+
+.about-content[hidden],
+.detail-card[hidden] {
+    display: none;
+}
+
+/* ===== DAFTAR MATERI ===== */
+.materials-section h2 {
+    font-size: 27px;
+    margin: 0 0 6px;
+    color: #102d55;
+}
+
+.section-description {
+    color: #42678d;
+    margin: 0 0 22px;
+}
+
+.material-list {
+    display: grid;
+    gap: 24px;
+}
+
+.material-card {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    width: 100%;
+    min-height: 110px;
+    padding: 25px 30px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: #103968;
+    font-size: 22px;
+}
+
+.material-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.document-icon {
+    font-size: 32px;
+    flex-shrink: 0;
+}
+
+.material-card:hover,
+.material-card:focus-visible,
+.about-card:hover,
+.profile-card:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 0 18px rgba(255, 255, 255, 1),
+        0 0 32px rgba(56, 189, 248, 0.8),
+        0 0 45px rgba(37, 99, 235, 0.35);
+}
+
+.material-card:focus-visible,
+.about-heading:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
+}
+
+/* ===== HALAMAN DETAIL MATERI ===== */
+.detail-card {
+    background: linear-gradient(
+        135deg,
+        #dbeafe 0%,
+        #bfdbfe 35%,
+        #93c5fd 70%,
+        #c4e7ff 100%
+    ) !important;
+
+    background-color: #bfdbfe !important;
+
+    border: 1px solid rgba(255, 255, 255, 0.95);
+    border-radius: 24px;
+    padding: 32px;
+
+    box-shadow:
+        0 0 12px rgba(255, 255, 255, 0.65),
+        0 0 24px rgba(56, 189, 248, 0.35),
+        0 0 40px rgba(37, 99, 235, 0.15);
+}
+
+.back-link {
+    display: inline-block;
+    color: #064fce;
+    text-decoration: none;
+    font-weight: bold;
+    margin-bottom: 28px;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+.detail-card h1 {
+    font-size: 30px;
+    line-height: 1.3;
+    color: #102d55;
+}
+
+.detail-card h2 {
+    font-size: 22px;
+    margin-top: 28px;
+    color: #103968;
+}
+
+.detail-card p,
+.detail-card li {
+    line-height: 1.85;
+    color: #294d75;
+}
+
+.detail-card code {
+    background: rgba(255, 255, 255, 0.55);
+    color: #103968;
+    padding: 3px 6px;
+    border-radius: 5px;
+    overflow-wrap: anywhere;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    padding: 35px 0 10px;
+    text-align: center;
+    color: #526b8a;
+    font-size: 14px;
+}
+
+/* ===== TAMPILAN HP ===== */
+@media (max-width: 480px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .profile-card {
+        padding: 0 18px 45px;
+        margin-bottom: 40px;
+        border-radius: 26px;
+    }
+
+    .avatar-frame {
+        width: 230px;
+        height: 230px;
+        margin-bottom: 28px;
+    }
+
+    .identity {
+        font-size: 18px;
+    }
+
+    .university {
+        font-size: 21px;
+    }
+
+    .about-card {
+        margin-bottom: 35px;
+    }
+
+    .about-heading {
+        padding: 22px 20px;
+        font-size: 19px;
+        gap: 12px;
+    }
+
+    .about-content {
+        padding: 0 20px 22px;
+        font-size: 15px;
+    }
+
+    .materials-section h2 {
+        font-size: 24px;
+    }
+
+    .material-list {
+        gap: 18px;
+    }
+
+    .material-card {
+        min-height: 94px;
+        padding: 22px 20px;
+        gap: 18px;
+        font-size: 18px;
+        border-radius: 18px;
+    }
+
+    .document-icon {
+        font-size: 28px;
+    }
+
+    .detail-card {
+        padding: 24px 20px;
+    }
+}
+
+/* ===== AKSESIBILITAS: KURANGI ANIMASI ===== */
+@media (prefers-reduced-motion: reduce) {
+    .profile-card,
+    .about-card,
+    .material-card,
+    .profile-card::before,
+    .about-card::before,
+    .material-card::before {
+        animation: none;
+        transition: none;
+    }
+}
